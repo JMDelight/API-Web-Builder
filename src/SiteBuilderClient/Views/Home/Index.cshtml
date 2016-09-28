@@ -1,0 +1,13 @@
+﻿
+
+<h1>Geode-cities</h1>
+<h3>It rocks.</h3>
+<hr />
+<h2>Here are the web-pages</h2>
+<ul>
+    @foreach (var siteName in ViewBag.siteNames)
+    {
+        <li><a asp-controller="home" asp-action="ViewSite/@siteName"> @siteName </a></li>
+
+    }
+</ul>
