@@ -1,7 +1,12 @@
-﻿<h1>Create your own page</h1>
+﻿@model SiteBuilderClient.Models.WebSite
+
+<h1>Create your own page</h1>
 
 <form asp-controller="home" asp-action="CreateSite" method="post">
 
-
+    <label asp-for="Title">Title</label><br />
+    <input asp-for="Title" /><br />
+    <label asp-for="Contents">Page Code</label><br />
+    <textarea asp-for="Contents" cols="100" rows="60"></textarea><br />
     <button type="submit">Add it</button>
 </form>

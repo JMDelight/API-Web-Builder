@@ -107,19 +107,16 @@ namespace SiteBuilderClient.wwwroot.Controllers
         }
 
         [HttpPost, ActionName("CreateSite")]
-        public IActionResult CreateSiteStandinForNow()
+        public IActionResult CreateSiteStandinForNow(WebSite userSite)
         {
-            WebSite testSite = new WebSite();
-            testSite.Title = "Hello Wold.";
-            testSite.Contents = "<h1>`super fun`</h1>";
             var client = new RestClient("http://localhost:65000/api");
             //2
             var request = new RestRequest("website", Method.POST);
             //3
             request.RequestFormat = DataFormat.Json;
             //request.AddHeader("Content-type", "application/json");
-            request.AddParameter("title", testSite.Title);
-            request.AddParameter("contents", testSite.Contents);
+            request.AddParameter("title", userSite.Title);
+            request.AddParameter("contents", userSite.Contents);
             //JObject webpage =
             //    new JObject(
             //        new JProperty("Title", "Hello World"),
