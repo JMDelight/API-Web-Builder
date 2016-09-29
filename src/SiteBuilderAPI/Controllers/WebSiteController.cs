@@ -17,7 +17,7 @@ namespace SiteBuilderAPI.Controllers
     {
         // GET: api/values
         [HttpGet]
-        public List<string> Get()
+        public Dictionary<string, string> Get()
         {
             var client = new RestClient("https://dotnet-test-4a976.firebaseio.com/");
             //2
@@ -37,18 +37,13 @@ namespace SiteBuilderAPI.Controllers
                 keys.Add(key);
             }
             var abc = jsonResponse["-KSm-bIZURFnsKxHCTzL"]["contents"];
-            Dictionary<string, List<string>> websites = new Dictionary<string, List<string>>();
+            Dictionary<string, string> websites = new Dictionary<string, string>();
             List<string> siteNames = new List<string>();
             foreach (string str in keys)
             {
                 string title = (string) jsonResponse[str]["title"];
                 siteNames.Add(title);
-                List<string> content = new List<string> ();
-                foreach (string item in jsonResponse[str]["contents"])
-                {
-                    content.Add(item);
-                }
-                websites.Add(title, content);
+                websites.Add(str, title);
                 //string[] content = jsonResponse[str]["contents"];
             }
 
@@ -57,7 +52,7 @@ namespace SiteBuilderAPI.Controllers
             {
                 returnString += str;
             }
-            return siteNames;
+            return websites;
         }
 
         public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)
@@ -93,9 +88,14 @@ namespace SiteBuilderAPI.Controllers
         {
             var client = new RestClient("https://dotnet-test-4a976.firebaseio.com/");
             //2
-            var request = new RestRequest("/websites/.json", Method.POST);
-            var testObject = new JObject { "html": "blank webpage", "title": "your title here" };
-            request.AddBody();
+            var request = new RestRequest("/poodles/.json", Method.POST);
+            request.AddHeader("Content-type", "application/json");
+            request.AddJsonBody(
+                        new
+                        {
+                            UserName = "Why r u not get request?",
+                            SecurityQuestion = "Very post. Much request"
+                        });
             //3
             var response = new RestResponse();
             Task.Run(async () =>

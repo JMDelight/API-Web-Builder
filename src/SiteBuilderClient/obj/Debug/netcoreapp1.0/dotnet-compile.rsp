@@ -1,5 +1,5 @@
---temp-output:c:\users\epicodus\desktop\SiteBuilderAPI\src\SiteBuilderClient\obj\Debug\netcoreapp1.0\
---out:c:\users\epicodus\desktop\SiteBuilderAPI\src\SiteBuilderClient\bin\Debug\netcoreapp1.0\SiteBuilderClient.dll
+--temp-output:C:\Users\epicodus\Desktop\Geode-Cities-API-and-Client-laughing-octo-guacamole\src\SiteBuilderClient\obj\Debug\netcoreapp1.0\
+--out:C:\Users\epicodus\Desktop\Geode-Cities-API-and-Client-laughing-octo-guacamole\src\SiteBuilderClient\bin\Debug\netcoreapp1.0\SiteBuilderClient.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -180,8 +180,8 @@
 --reference:C:\Users\epicodus\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\epicodus\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
 --reference:C:\Users\epicodus\.nuget\packages\System.Xml.XmlSerializer\4.0.11\ref\netstandard1.3\System.Xml.XmlSerializer.dll
---reference:c:\users\epicodus\desktop\SiteBuilderAPI\src\SiteBuilderAPI\bin\Debug\netcoreapp1.0\SiteBuilderAPI.dll
---resource:"c:\users\epicodus\desktop\SiteBuilderAPI\src\SiteBuilderClient\obj\Debug\netcoreapp1.0\SiteBuilderClientdotnet-compile.deps.json",SiteBuilderClient.deps.json
-c:\users\epicodus\desktop\SiteBuilderAPI\src\SiteBuilderClient\Program.cs
-c:\users\epicodus\desktop\SiteBuilderAPI\src\SiteBuilderClient\Startup.cs
-c:\users\epicodus\desktop\SiteBuilderAPI\src\SiteBuilderClient\Controllers\HomeController.cs
+--reference:C:\Users\epicodus\Desktop\Geode-Cities-API-and-Client-laughing-octo-guacamole\src\SiteBuilderAPI\bin\Debug\netcoreapp1.0\SiteBuilderAPI.dll
+--resource:"C:\Users\epicodus\Desktop\Geode-Cities-API-and-Client-laughing-octo-guacamole\src\SiteBuilderClient\obj\Debug\netcoreapp1.0\SiteBuilderClientdotnet-compile.deps.json",SiteBuilderClient.deps.json
+C:\Users\epicodus\Desktop\Geode-Cities-API-and-Client-laughing-octo-guacamole\src\SiteBuilderClient\Program.cs
+C:\Users\epicodus\Desktop\Geode-Cities-API-and-Client-laughing-octo-guacamole\src\SiteBuilderClient\Startup.cs
+C:\Users\epicodus\Desktop\Geode-Cities-API-and-Client-laughing-octo-guacamole\src\SiteBuilderClient\Controllers\HomeController.cs

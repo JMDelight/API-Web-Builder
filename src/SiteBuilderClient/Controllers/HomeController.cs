@@ -56,10 +56,18 @@ namespace SiteBuilderClient.wwwroot.Controllers
             //    websites.Add(title, content);
             //    //string[] content = jsonResponse[str]["contents"];
             //}
-            JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(response.Content);
-            var messageList = JsonConvert.DeserializeObject<string[]>(jsonResponse.ToString());
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
+            Dictionary<string, string>siteNames = new Dictionary<string, string> ();
+            foreach(var str in jsonResponse)
+            {
+                string site = str.ToString();
+
+                string[] pairValue = site.Split(new char[] { ',' }, 2);
+                siteNames.Add(pairValue[0].Substring(1), pairValue[1].Substring(0, pairValue[1].Length - 1));
+            }
+            //var messageList = JsonConvert.DeserializeObject<JObject>(jsonResponse.ToObject<Dictionary<string, string>>);
             //var abc = response.Content[0];
-            ViewBag.siteNames = messageList;
+            ViewBag.siteNames = siteNames;
 
             return View();
         }
