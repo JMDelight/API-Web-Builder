@@ -7,7 +7,11 @@
 <ul>
     @foreach (var key in ViewBag.siteNames.Keys)
     {
-        <li><a asp-controller="home" asp-action="ViewSite/@key"> @ViewBag.siteNames[key] </a></li>
+        <li>
+            <a asp-controller="home" asp-action="ViewSite/@key"> @ViewBag.siteNames[key] </a>
+        </li>
 
     }
 </ul>
+
+<h1><a asp-controller="home" asp-action="CreateSite"> Create your own site! </a></h1>

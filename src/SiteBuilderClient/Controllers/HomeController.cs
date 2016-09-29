@@ -7,6 +7,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SiteBuilderClient.Models;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -98,6 +99,46 @@ namespace SiteBuilderClient.wwwroot.Controllers
                 tcs.SetResult(response);
             });
             return tcs.Task;
+        }
+
+        public IActionResult CreateSite()
+        {
+            return View();
+        }
+
+        [HttpPost, ActionName("CreateSite")]
+        public IActionResult CreateSiteStandinForNow()
+        {
+            WebSite testSite = new WebSite();
+            testSite.Title = "Hello Wold.";
+            testSite.Contents = "<h1>`super fun`</h1>";
+            var client = new RestClient("http://localhost:65000/api");
+            //2
+            var request = new RestRequest("website", Method.POST);
+            //3
+            request.RequestFormat = DataFormat.Json;
+            //request.AddHeader("Content-type", "application/json");
+            request.AddParameter("title", testSite.Title);
+            request.AddParameter("contents", testSite.Contents);
+            //JObject webpage =
+            //    new JObject(
+            //        new JProperty("Title", "Hello World"),
+            //        new JProperty("Contents",
+            //            new JArray(
+            //                new JValue("<h1>"),
+            //                new JValue("super fun"),
+            //                new JValue("</h1>")
+            //            )
+            //        )
+            //    );
+
+            //request.AddObject(webpage);
+            var response = new RestResponse();
+            Task.Run(async () =>
+            {
+                response = await GetResponseContentAsync(client, request) as RestResponse;
+            }).Wait();
+            return RedirectToAction("Index");
         }
     }
 }

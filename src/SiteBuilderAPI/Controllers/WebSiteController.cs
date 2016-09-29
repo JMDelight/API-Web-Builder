@@ -7,6 +7,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SiteBuilderAPI.Models;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -84,25 +85,30 @@ namespace SiteBuilderAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public RestResponse Post()
+        public void Post(string Title = "not found", string Contents = "no contents")
         {
             var client = new RestClient("https://dotnet-test-4a976.firebaseio.com/");
             //2
-            var request = new RestRequest("/poodles/.json", Method.POST);
+
+            var request = new RestRequest("/websites/.json", Method.POST);
             request.AddHeader("Content-type", "application/json");
+            //request.AddParameter("title", title);
+            //request.AddParameter("contents", contents);
+            string[] splitContent = Contents.Split('`');
             request.AddJsonBody(
-                        new
-                        {
-                            UserName = "Why r u not get request?",
-                            SecurityQuestion = "Very post. Much request"
-                        });
+            new
+            {
+                title = Title,
+                contents = splitContent
+            });
+
             //3
             var response = new RestResponse();
             Task.Run(async () =>
             {
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
-            return response;
+            //return response;
         }
 
         // PUT api/values/5
